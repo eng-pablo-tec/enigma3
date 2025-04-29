@@ -3,8 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadeado Lógico</title>
+    <title>Cadeado Lógico - Enigma em Portugol</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
             display: flex;
             justify-content: center;
@@ -12,26 +17,49 @@
             height: 100vh;
             background-color: #f3f3f3;
             font-family: Arial, sans-serif;
+            padding: 20px;
         }
         .container {
             text-align: center;
             background: white;
-            padding: 20px;
+            padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            position: relative;
         }
         .lock {
-            font-size: 50px;
+            font-size: 80px;
             color: red;
+            margin-bottom: 20px;
         }
         .unlocked {
             color: green;
+        }
+        h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        ul {
+            text-align: left;
+            margin-bottom: 20px;
+            padding-left: 20px;
+            font-size: 14px;
         }
         input {
             padding: 10px;
             margin-top: 10px;
             text-align: center;
             font-size: 16px;
+            width: 100%;
+            max-width: 300px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
         }
         button {
             padding: 10px;
@@ -41,6 +69,9 @@
             border: none;
             cursor: pointer;
             font-size: 16px;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 300px;
         }
         button:hover {
             background-color: darkblue;
@@ -51,40 +82,74 @@
             font-size: 16px;
             color: black;
         }
+        #link {
+            display: none;
+            margin-top: 20px;
+        }
+        #link a {
+            color: blue;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        #link a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div id="lockIcon" class="lock">🔒</div>
-        <h2>Digite o Código</h2>
-        <input type="password" id="codeInput" placeholder="Digite o código">
+        <h2>Enigma: Soma de Números</h2>
+        <p>Você tem uma lista de 10 números inteiros positivos. A lista contém os seguintes números:</p>
+        <p>10, 20, 30, 40, 50, 60, 70, 80, 90, 100</p>
+        <p>Qual é a soma total desses números?</p>
+        <ul>
+            <li>A) 100</li>
+            <li>B) 110</li>
+            <li>C) 120</li>
+            <li>D) 130</li>
+            <li>E) 140</li>
+            <li>F) 150</li>
+            <li>G) 160</li>
+            <li>H) 170</li>
+            <li>I) 180</li>
+            <li>J) 190</li>
+            <li>K) 200</li>
+            <li>L) 210</li>
+            <li>M) 220</li>
+            <li>N) 230</li>
+            <li>O) 550 (Resposta Correta)</li>
+        </ul>
+        <h3>Digite a letra da alternativa correta para desbloquear:</h3>
+        <input type="text" id="codeInput" placeholder="Digite a letra da alternativa">
         <br>
         <button onclick="checkCode()">Desbloquear</button>
-        <p id="message">Use a cifra de César chave 5 para decifrar esse texto.<br>
-        5-vzjgwj t tat;<br>
-        9-fgwf f ljqfijnwf;<br>
-        0-kjwajw rjcjw j ijutnx xjwanw, utw f rjxf<br>
-        5-ujlfw nslwjinjsyjx<br>
-        5-htqthfw tx nslwjinjsyjx sf ufsjqf<br>
+        <p id="message">Parabéns! Você decifrou o enigma!</p>
+        <div id="link">
+            <p>Confira mais enigmas no <a href="https://eng-pablo-tec.github.io/enigma4/" target="_blank">link aqui!</a></p>
+        </div>
     </div>
 
     <script>
         function checkCode() {
-            const correctCode = "235711";
-            const userCode = document.getElementById("codeInput").value;
+            const correctCode = "O"; // Letra da alternativa correta (550)
+            const userCode = document.getElementById("codeInput").value.toUpperCase();
             const lockIcon = document.getElementById("lockIcon");
             const message = document.getElementById("message");
+            const link = document.getElementById("link");
             
             if (userCode === correctCode) {
                 lockIcon.textContent = "🔓";
                 lockIcon.classList.add("unlocked");
                 setTimeout(() => {
                     message.style.display = "block";
+                    link.style.display = "block";
                 }, 500);
             } else {
                 lockIcon.textContent = "🔒";
                 lockIcon.classList.remove("unlocked");
                 message.style.display = "none";
+                link.style.display = "none";
             }
         }
     </script>
