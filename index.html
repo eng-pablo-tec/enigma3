@@ -3,13 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadeado Lógico - Enigma em Portugol</title>
+    <title>Cadeado Lógico</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
         body {
             display: flex;
             justify-content: center;
@@ -17,49 +12,26 @@
             height: 100vh;
             background-color: #f3f3f3;
             font-family: Arial, sans-serif;
-            padding: 20px;
         }
         .container {
             text-align: center;
             background: white;
-            padding: 30px;
+            padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 500px;
-            position: relative;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         .lock {
-            font-size: 80px;
+            font-size: 50px;
             color: red;
-            margin-bottom: 20px;
         }
         .unlocked {
             color: green;
-        }
-        h2 {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-        p {
-            font-size: 16px;
-            margin-bottom: 20px;
-        }
-        ul {
-            text-align: left;
-            margin-bottom: 20px;
-            padding-left: 20px;
-            font-size: 14px;
         }
         input {
             padding: 10px;
             margin-top: 10px;
             text-align: center;
             font-size: 16px;
-            width: 100%;
-            max-width: 300px;
-            border: 2px solid #ccc;
-            border-radius: 5px;
         }
         button {
             padding: 10px;
@@ -69,9 +41,6 @@
             border: none;
             cursor: pointer;
             font-size: 16px;
-            border-radius: 5px;
-            width: 100%;
-            max-width: 300px;
         }
         button:hover {
             background-color: darkblue;
@@ -99,26 +68,24 @@
 <body>
     <div class="container">
         <div id="lockIcon" class="lock">🔒</div>
-        <h2>Enigma: Soma de Números</h2>
-        <p>Você tem uma lista de 10 números inteiros positivos. A lista contém os seguintes números:</p>
-        <p>10, 20, 30, 40, 50, 60, 70, 80, 90, 100</p>
-        <p>Qual é a soma total desses números?</p>
+        <h2>Enigma: O Enigma das Três Lâmpadas</h2>
+        <p>Você está em um quarto com três interruptores. Cada interruptor controla uma lâmpada em outro quarto. Você pode ligar ou desligar os interruptores e depois ir até o outro quarto verificar as lâmpadas. Qual é a maneira de determinar qual interruptor controla qual lâmpada, indo ao outro quarto apenas uma vez?</p>
         <ul>
-            <li>A) 100</li>
-            <li>B) 110</li>
-            <li>C) 120</li>
-            <li>D) 130</li>
-            <li>E) 140</li>
-            <li>F) 150</li>
-            <li>G) 160</li>
-            <li>H) 170</li>
-            <li>I) 180</li>
-            <li>J) 190</li>
-            <li>K) 200</li>
-            <li>L) 210</li>
-            <li>M) 220</li>
-            <li>N) 230</li>
-            <li>O) 550 (Resposta Correta)</li>
+            <li>A) Ligar todos os interruptores e ir até o quarto.</li>
+            <li>B) Ligar um interruptor, esperar um tempo e desligá-lo, depois verificar qual lâmpada está quente.</li>
+            <li><b>C) Ligar o primeiro interruptor, esperar 5 minutos e desligá-lo, depois ligar o segundo interruptor.</b></li>
+            <li>D) Ligar o segundo interruptor e ir direto ao quarto.</li>
+            <li>E) Ligar o terceiro interruptor e ir direto ao quarto.</li>
+            <li>F) Ligar o primeiro interruptor, esperar 10 minutos, e depois verificar qual lâmpada está acesa.</li>
+            <li>G) Desligar todos os interruptores e depois testar as lâmpadas manualmente.</li>
+            <li>H) Ligar o segundo e o terceiro interruptor e ir até o quarto.</li>
+            <li>I) Girar todos os interruptores ao mesmo tempo e verificar as lâmpadas.</li>
+            <li>J) Usar um termômetro para medir a temperatura de cada lâmpada.</li>
+            <li>K) Ligar os interruptores por ordem e verificar qual lâmpada acende.</li>
+            <li>L) Testar a lâmpada que está apagada.</li>
+            <li>M) Ligar um interruptor por vez e verificar no quarto.</li>
+            <li>N) Colocar as lâmpadas em sequência de intensidade.</li>
+            <li>O) Testar as lâmpadas em sequência e verificar o calor.</li>
         </ul>
         <h3>Digite a letra da alternativa correta para desbloquear:</h3>
         <input type="text" id="codeInput" placeholder="Digite a letra da alternativa">
@@ -126,13 +93,13 @@
         <button onclick="checkCode()">Desbloquear</button>
         <p id="message">Parabéns! Você decifrou o enigma!</p>
         <div id="link">
-            <p>Confira mais enigmas no <a href="https://eng-pablo-tec.github.io/enigma4/" target="_blank">link aqui!</a></p>
+            <p>Confira mais enigmas no <a href="https://eng-pablo-tec.github.io/enigma2/" target="_blank">link aqui!</a></p>
         </div>
     </div>
 
     <script>
         function checkCode() {
-            const correctCode = "O"; // Letra da alternativa correta (550)
+            const correctCode = "C"; // Letra da alternativa correta
             const userCode = document.getElementById("codeInput").value.toUpperCase();
             const lockIcon = document.getElementById("lockIcon");
             const message = document.getElementById("message");
